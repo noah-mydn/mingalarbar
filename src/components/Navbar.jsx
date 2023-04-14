@@ -1,4 +1,5 @@
-import { Box, Drawer, IconButton, Link, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Typography } from '@mui/material'
+import { AppBar, Box, Drawer, IconButton, Link, 
+    List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Typography } from '@mui/material'
 import React from 'react'
 import theme from '../theme/theme'
 import styled from '@emotion/styled';
@@ -17,7 +18,7 @@ export const Navbar = (props) => {
     const open = Boolean(anchorEl);
     
     const { WINDOW } = props;
-    const mobileScreen = props.mobileScreen;
+    const tabletScreen = props.tabletScreen;
   
 
     //Styling Navigation
@@ -27,6 +28,8 @@ export const Navbar = (props) => {
         textTransform:'uppercase',
         textDecoration:'none',
         position:'relative',
+        fontSize:'1rem',
+        cursor:'pointer',
         fontFamily:theme.typography.fontFamily,
         '&:hover': {
             color:theme.palette.text.main,
@@ -142,7 +145,11 @@ export const Navbar = (props) => {
       const container = WINDOW !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box color={isNavTransparent ? '' : 'secondary'} elevation={0} px={1}>
+    <AppBar 
+    sx={{background:isNavTransparent ? 'transparent' : theme.palette.secondary.dark,
+        transition: 'background 0.5s ease-in-out'}}
+    elevation={0} 
+    px={1}>
             <Box display='flex' justifyContent='space-between' alignItems='center' p={1}>
                 
                 <IconButton
@@ -150,13 +157,13 @@ export const Navbar = (props) => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{display : mobileScreen ? 'block' : 'none'}}
+                sx={{display : tabletScreen ? 'block' : 'none'}}
             >
                 <MenuIcon color='primary'/>
                 </IconButton>
 
                 <Box component='img' src='./assets/images/mingalarbar.png' width='120px' height='70px'/>
-                <Box display={mobileScreen ? 'none':'flex'} alignItems='center'>
+                <Box display={tabletScreen ? 'none':'flex'} alignItems='center'>
                     {NavTabs.map((nav,index)=>{
                         return(
                            <NavigationLink key={index} mx={2} color='primary'>{nav}</NavigationLink>
@@ -165,7 +172,7 @@ export const Navbar = (props) => {
                 </Box>
                 <Box display='flex'>
                     <Box display='flex' alignItems='center' px={1}>
-                        <LoginIcon color='primary' sx={{display:mobileScreen ? 'none' : 'block'}}/>
+                        <LoginIcon color='primary' sx={{display:tabletScreen ? 'none' : 'block'}}/>
                         <Typography variant='body2' color='primary' pl={1}>
                             LogIn
                         </Typography>
@@ -176,8 +183,8 @@ export const Navbar = (props) => {
                         aria-expanded={open ? 'true' : undefined}
                         variant="contained"
                         disableElevation
-                        onClick={mobileScreen ? handleLoginClick : showLoginPage}
-                        sx={{display:mobileScreen ? 'block' : 'none',
+                        onClick={tabletScreen ? handleLoginClick : showLoginPage}
+                        sx={{display:tabletScreen ? 'block' : 'none',
                             cursor:'pointer'}}/>
 
                         <CustomMenu
@@ -205,7 +212,7 @@ export const Navbar = (props) => {
                             
                         
                     </Box>
-                    <Box display={mobileScreen ? 'none':'flex'} alignItems='center' px={1}>
+                    <Box display={tabletScreen ? 'none':'flex'} alignItems='center' px={1}>
                             <PersonIcon color='primary'/>
                         <Typography variant='body2' color='primary' pl={1}>
                             SignUp
@@ -232,6 +239,6 @@ export const Navbar = (props) => {
             >
             {drawer}
         </Drawer>
-    </Box>
+    </AppBar>
   )
 }

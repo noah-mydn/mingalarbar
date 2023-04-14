@@ -6,8 +6,9 @@ const theme= createTheme({
             main:'#FFD369',
         },
         secondary: {
-            light:'#393E46',
+            light:'#2b323d',
             main:'#222831',
+            dark:'#181C23',
         },
         text: {
             main:'#EEEEEE',
@@ -15,7 +16,7 @@ const theme= createTheme({
     },
 
     typography: {
-        fontFamily:['Philosopher', 'sans-serif'].join(','),
+        fontFamily:['Philosopher', 'Mulish', 'sans-serif'].join(','),
         fontSize:16,
     },
 });
