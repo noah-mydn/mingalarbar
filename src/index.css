@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
+
+html,body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Philosopher', sans-serif;
+}
+
+body {
+  background-color: #393E46;
+}
