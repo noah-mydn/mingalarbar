@@ -9,6 +9,7 @@ import { NavTabs, mobileNav } from '../navigationData/navigationData';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import CloseIcon from '@mui/icons-material/Close';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export const Navbar = (props) => {
 
@@ -171,7 +172,7 @@ export const Navbar = (props) => {
                     })}
                 </Box>
                 <Box display='flex'>
-                    <Box display='flex' alignItems='center' px={1}>
+                    {/* <Box display='flex' alignItems='center' px={1}>
                         <LoginIcon color='primary' sx={{display:tabletScreen ? 'none' : 'block'}}/>
                         <Typography variant='body2' color='primary' pl={1}>
                             LogIn
@@ -217,7 +218,10 @@ export const Navbar = (props) => {
                         <Typography variant='body2' color='primary' pl={1}>
                             SignUp
                         </Typography>
-                    </Box>
+                    </Box> */}
+                    <IconButton>
+                        <ShoppingCartIcon color='primary'/>
+                    </IconButton>
                 </Box>
             </Box>
             <Drawer

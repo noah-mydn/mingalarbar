@@ -3,7 +3,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import theme from '../theme/theme';
 import styled from '@emotion/styled';
 
 export const TopRatedDish = ({tabletScreen}) => {

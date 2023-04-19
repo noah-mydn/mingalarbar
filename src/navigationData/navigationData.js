@@ -1,4 +1,4 @@
-export const NavTabs = ['Home', 'Menu', 'Make reservation', 'Reviews', 'Contact'];
+export const NavTabs = ['Home', 'Menu', 'Blogs', 'Reviews', 'Contact'];
 
 export const mobileNav=[
     {id:1,
@@ -10,7 +10,7 @@ export const mobileNav=[
     },
 
     {id:3,
-    navText:'Make Reservation',
+    navText:'Blogs',
     },
 
     {id:4,

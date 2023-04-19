@@ -16,7 +16,7 @@ const theme= createTheme({
     },
 
     typography: {
-        fontFamily:['Philosopher', 'Mulish', 'sans-serif'].join(','),
+        fontFamily:['Philosopher', 'Jost', 'sans-serif'].join(','),
         fontSize:16,
     },
 });

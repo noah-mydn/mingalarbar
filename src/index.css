@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 
@@ -16,6 +16,11 @@ body{
 .slick {
   margin:0 auto;
   width:90%;
+}
+
+.slick-review {
+    margin:0 auto;
+    width:80%;
 }
 
 

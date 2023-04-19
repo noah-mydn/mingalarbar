@@ -4,8 +4,16 @@ import React from 'react';
 import theme from '../theme/theme';
 import { Story } from '../components/Story';
 import { TopRatedDish } from '../components/TopRatedDish';
+import { DisplayMenu } from '../components/DisplayMenu';
+import { Reviews } from '../components/Reviews';
+import { Blogs } from '../components/Blogs';
+import { useSelector } from 'react-redux';
+import { menuSelector } from '../redux/selector/selector';
 
 export const Home = ({mobileScreen,tabletScreen}) => {
+
+    const [greeting, setGreeting] = React.useState("");
+    const menu = useSelector(menuSelector);
 
     const OrderButton = styled(Button) ({
         width:'280px',
@@ -37,6 +45,21 @@ export const Home = ({mobileScreen,tabletScreen}) => {
         }
     });
 
+    React.useEffect(()=>{
+        const date = new Date();
+        const hours = date.getHours();
+    
+        if (hours >= 4 && hours < 12) {
+          setGreeting('Good morning!');
+        } else if (hours >= 12 && hours < 18) {
+          setGreeting('Good afternoon!');
+        } else if (hours >= 18 && hours < 24) {
+          setGreeting('Good evening!');
+        } else {
+          setGreeting('Are you looking for a midnight snack?');
+        }
+    },[])
+
   return (
     <Grid container>
         <Grid item xs={12} position='relative' columnGap={0} rowGap={0}>
@@ -63,11 +86,11 @@ export const Home = ({mobileScreen,tabletScreen}) => {
             </Typography>
             <OrderButton>
                 <Typography variant='h5'
-                fontFamily='Mulish'>Order Now</Typography>
+                fontFamily='Jost'>Order Now</Typography>
             </OrderButton>
             <ReservationButton>
             <Typography variant='h5'
-            fontFamily='Mulish'>Book a Table</Typography>
+            fontFamily='Jost'>Book a Table</Typography>
             </ReservationButton>
             </Grid>
         </Grid>
@@ -81,15 +104,27 @@ export const Home = ({mobileScreen,tabletScreen}) => {
             <Story mobileScreen={mobileScreen} tabletScreen={tabletScreen}/>
         </Grid>
         <Grid item xs={12} px={2} py={4} bgcolor={theme.palette.secondary.dark}>
-        <Typography variant='h4' component='h4'
-            textAlign='center'
-            color='primary' gutterBottom={0} mt={2} mb={4}>
+            <Typography variant='h4' component='h4'
+                        textAlign='center'
+                        color='primary' gutterBottom={0} mt={2} mb={4}>
                 Top-rated Menu
             </Typography>
             <TopRatedDish tabletScreen={tabletScreen}/>
         </Grid>
-        <Grid item xs={12} px={2} bgcolor='#fff'>
-            <Typography variant='h4' component='h4'></Typography>
+        <Grid item xs={12} bgcolor='white'>
+            <Typography variant='h4' component='h4' my={2} 
+            textAlign='center' color='secondary'>
+                {greeting}
+            </Typography>
+            <DisplayMenu tabletScreen={tabletScreen} mobileScreen={mobileScreen} menu={menu}/>
+        </Grid>
+        <Grid item xs={12} px={2} py={4} bgcolor={theme.palette.secondary.dark}>
+            <Typography variant='h4' component='h4'
+                        textAlign='center'
+                        color='primary' gutterBottom={0} mt={2} mb={4}>
+                Our Blogs
+            </Typography>
+            <Blogs/>
         </Grid>
     </Grid>
   )
