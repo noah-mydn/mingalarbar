@@ -147,7 +147,7 @@ export const Navbar = (props) => {
 
   return (
     <AppBar 
-    sx={{background:isNavTransparent ? 'transparent' : theme.palette.secondary.dark,
+    sx={{background:isNavTransparent ? 'transparent' : theme.palette.info.main,
         transition: 'background 0.5s ease-in-out'}}
     elevation={0} 
     px={1}>

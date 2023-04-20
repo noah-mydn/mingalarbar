@@ -13,6 +13,9 @@ const theme= createTheme({
         text: {
             main:'#EEEEEE',
         },
+        info: {
+            main:'#101317',
+        }
     },
 
     typography: {

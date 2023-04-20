@@ -94,10 +94,10 @@ export const Home = ({mobileScreen,tabletScreen}) => {
             </ReservationButton>
             </Grid>
         </Grid>
-        <Grid item xs={12} px={6} bgcolor={theme.palette.secondary.light} >
+        <Grid item xs={12} px={6} bgcolor={theme.palette.secondary.light} mt={-2} >
             <Typography variant='h4' component='h4'
             textAlign={tabletScreen ? 'center' : 'start'}
-            color='primary' gutterBottom={0} mt={2}
+            color='primary' gutterBottom={0} mt={4}
             padding={0}>
                 Our Story
             </Typography>
@@ -109,7 +109,7 @@ export const Home = ({mobileScreen,tabletScreen}) => {
                         color='primary' gutterBottom={0} mt={2} mb={4}>
                 Top-rated Menu
             </Typography>
-            <TopRatedDish tabletScreen={tabletScreen}/>
+            <TopRatedDish tabletScreen={tabletScreen} py={2}/>
         </Grid>
         <Grid item xs={12} bgcolor='white'>
             <Typography variant='h4' component='h4' my={2} 

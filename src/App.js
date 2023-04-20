@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useDispatch } from 'react-redux';
 import { fetchMenu } from './redux/reducers/menuSlice';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { MenuDetail } from './components/MenuDetail';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home tabletScreen={tabletScreen} mobileScreen={mobileScreen}/>}/>
           <Route path='/menu' element={<Menu tabletScreen={tabletScreen} mobileScreen={mobileScreen}/>}/>
+          <Route path='/menu-details' element={<MenuDetail tabletScreen={tabletScreen} mobileScreen={mobileScreen}/>}/>
         </Routes>
         
       </BrowserRouter>   

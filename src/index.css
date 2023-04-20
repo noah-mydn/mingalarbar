@@ -9,9 +9,9 @@ html,body {
   box-sizing: border-box;
 }
 
-body{
+/* body{
   background-color: #2b323d;
-}
+} */
 
 .slick {
   margin:0 auto;

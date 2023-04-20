@@ -2,8 +2,11 @@ import styled from '@emotion/styled'
 import { Box, Button, Typography, Grid, Chip, Stack } from '@mui/material'
 import React from 'react'
 import theme from '../theme/theme';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const DisplayMenu = ({tabletScreen,mobileScreen, menu}) => {
+
+  const navigate = useNavigate();
 
   const MenuImage = styled(Box)({
     width: tabletScreen ? '180px':'150px',
@@ -40,9 +43,13 @@ export const DisplayMenu = ({tabletScreen,mobileScreen, menu}) => {
     borderRadius:4,
     boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.3)',
     padding:mobileScreen ? '2em' : '2em 0 2em 1.5em',
-  })
+  });
 
-  console.log(menu);
+  //console.log(menu);
+
+  const showDetails = (menu) => {
+    navigate('/menu-details',{state:{menu:menu}});
+  }
 
 
   return (
@@ -55,13 +62,14 @@ export const DisplayMenu = ({tabletScreen,mobileScreen, menu}) => {
                 <MenuCard container item lg={3} md={5} sm={8} xs={10}
                 key={menu.id} columnGap={0}
                 my={3} 
+                onClick={()=>{showDetails(menu)}}
                 >
                   <Grid item md={5} sm={5} xs={12} display='flex' justifyContent='center'>
                     <MenuImage component='img' alt={menu.title} src={menu.imageUrl}/>
                   </Grid>
                   <Grid item md={7} sm={5} xs={12} display='flex' justifyContent='center'>
                     <Box display='flex' flexDirection='column' justifyContent='space-between' alignItems='center'>
-                      <Typography variant='caption' fontWeight='bolder'
+                      <Typography variant={tabletScreen ? 'body1' :'caption'} fontWeight='bolder'
                       fontFamily='Jost' 
                       textAlign='center' gutterBottom>{menu.title}</Typography>
                       <Stack direction="row" spacing={1} display='flex' justifyContent='center' py={1}>
@@ -84,7 +92,9 @@ export const DisplayMenu = ({tabletScreen,mobileScreen, menu}) => {
           </Grid>
           
       </Box>
-      <ViewMore color='secondary'>View More</ViewMore>
+      <Link to='/menu'>
+        <ViewMore color='secondary'>View More</ViewMore>
+      </Link>
     </Box>
   )
 }

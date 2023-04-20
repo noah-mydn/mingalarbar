@@ -10,6 +10,7 @@ app.use(cors({
     origin: 'http://localhost:3001',
 }));
 
-app.use('/api/v1/menus',menuRouter)
+app.use('/api/v1/menus',menuRouter);
+app.use('/api/v1/menu-categories',menuCategoryRouter);
 
 module.exports = app;

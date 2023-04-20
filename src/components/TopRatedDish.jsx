@@ -19,9 +19,12 @@ export const TopRatedDish = ({tabletScreen}) => {
     var settings = {
         dots: true,
         infinite: true,
-        speed:1000,
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
         nextArrow:<ArrowForwardIosIcon color='text'/>,
         prevArrow:<ArrowBackIosIcon color='text'/>,
 
